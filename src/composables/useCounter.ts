@@ -1,21 +1,17 @@
-// This is a conceptual example.
-// For actual Vue reactivity, you'd import `ref` from 'vue'.
-// Since 'vue' is not a direct dependency of this core lib,
-// this composable demonstrates the structure.
-// A consuming Nuxt/Vue app would handle Vue's reactivity.
+import { ref, Ref } from 'vue';
 
 export interface CounterOptions {
   initialValue?: number;
 }
 
 export interface CounterReturn {
-  count: { value: number }; // Simplified representation of a ref
+  count: Ref<number>;
   increment: () => void;
   decrement: () => void;
 }
 
 export const useCounter = (options?: CounterOptions): CounterReturn => {
-  const count = { value: options?.initialValue || 0 };
+  const count = ref(options?.initialValue || 0);
 
   const increment = () => {
     count.value++;

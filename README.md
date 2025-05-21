@@ -15,6 +15,7 @@ Or using yarn:
 ```bash
 yarn add core
 ```
+*Note: This library now includes Vue composables and has `vue` as a direct dependency.*
 
 ## Usage
 
@@ -58,30 +59,31 @@ console.log(myUser.name);
 
 ### Composables
 
-The composables in this library are designed to be framework-agnostic but are easily integrable with Vue's reactivity system.
+This library provides Vue composables. Ensure `vue` is installed in your project (it is a direct dependency of this library).
 
 ```typescript
 import { useCounter } from 'core';
-// In a Vue component, you would typically wrap the count in a ref:
-// import { ref } from 'vue';
+import { watch } from 'vue'; // For demonstrating reactivity
 
+// Initialize the counter
 const { count, increment, decrement } = useCounter({ initialValue: 10 });
 
-// Example of how you might use it conceptually (Vue specific parts commented out)
-// const reactiveCount = ref(count.value); // Vue's reactivity
+// `count` is a Vue Ref, so it's reactive
+console.log(count.value); // Output: 10
 
-console.log(count.value); // Output: 10 (or initial value)
 increment();
 console.log(count.value); // Output: 11
+
 decrement();
 console.log(count.value); // Output: 10
 
-// To make count reactive in Vue:
-// watch(count, (newVal) => { reactiveCount.value = newVal });
-// or more directly if useCounter was adapted to use Vue's ref internally.
-```
-*Note: The `useCounter` example shows conceptual usage. In a Vue application, you would typically use Vue's `ref` for reactive state management within the composable itself, or when consuming it.*
+// Example of watching the reactive count
+watch(count, (newVal, oldVal) => {
+  console.log(`Count changed from ${oldVal} to ${newVal}`);
+});
 
+increment(); // This will trigger the watcher
+```
 
 ## Building from source
 
