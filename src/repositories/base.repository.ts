@@ -2,7 +2,7 @@ import { User } from '@/models/user.model'; // Adjust path if necessary based on
 
 export interface IBaseRepository<T, IDType = string | number> {
   findById(id: IDType): Promise<T | null>;
-  findAll(params?: any): Promise<T[]>; // Allow optional params for filtering/pagination
+  findAll(params?: Record<string, unknown>): Promise<T[]>; // Allow optional params for filtering/pagination
   create(data: Partial<T>): Promise<T>;
   update(id: IDType, data: Partial<T>): Promise<T | null>;
   delete(id: IDType): Promise<boolean>;
