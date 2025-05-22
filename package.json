@@ -1,0 +1,35 @@
+{
+  "name": "@tbostest/ps-core",
+  "version": "0.0.1",
+  "description": "A package for ps-core.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SongKimTB/ps-core.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SongKimTB/ps-core/issues"
+  },
+  "homepage": "https://github.com/SongKimTB/ps-core#readme",
+  "peerDependencies": {
+    "nuxt": "^3.17.4",
+    "vue": "^3.5.14"
+  },
+  "devDependencies": {
+    "@nuxt/kit": "^3.17.4",
+    "typescript": "^5.8.3",
+    "vue-tsc": "^2.2.10"
+  }
+}
