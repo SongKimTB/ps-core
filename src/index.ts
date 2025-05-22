@@ -17,7 +17,3 @@ export * from './composables';
 
 // Repositories
 export * from './repositories';
-
-
-//Components
-export * from './components';
