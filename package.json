@@ -1,5 +1,5 @@
 {
-  "name": "@tbostest/ps-core-test1",
+  "name": "@tbostest/ps-core",
   "version": "0.0.2",
   "description": "A package for ps-core.",
   "main": "dist/index.js",
