@@ -1,15 +1,30 @@
 {
   "name": "@tbostest/ps-core",
-  "version": "0.0.5",
+  "version": "0.0.22",
   "description": "A package for ps-core.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "main": "./dist/runtime/composables/index.mjs",
+  "module": "./dist/runtime/composables/index.mjs",
+  "types": "./dist/runtime/composables/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/runtime/composables/index.d.ts",
+      "import": "./dist/runtime/composables/index.mjs",
+      "require": "./dist/runtime/composables/index.cjs"
+    },
+    "./runtime/*": {
+      "types": "./dist/runtime/*.d.ts",
+      "import": "./dist/runtime/*.mjs",
+      "require": "./dist/runtime/*.cjs"
+    }
+  },
   "files": [
-    "dist"
+    "dist",
+    "src/runtime"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "nuxt-module-build --rootDir . --entry src/module",
     "bump-version": "npm version patch --force",
     "prepublishOnly": "npm run bump-version && npm run build"
   },
@@ -25,11 +40,13 @@
   },
   "homepage": "https://github.com/SongKimTB/ps-core#readme",
   "peerDependencies": {
-    "nuxt": "^3.17.4",
-    "vue": "^3.5.14"
+    "vue": "^3.5.14",
+    "nuxt": "^3.0.0"
   },
   "devDependencies": {
-    "@nuxt/kit": "^3.17.4",
+    "@nuxt/kit": "^3.0.0",
+    "@nuxt/schema": "^3.0.0",
+    "@nuxt/module-builder": "^0.5.5",
     "typescript": "^5.8.3",
     "vue-tsc": "^2.2.10"
   }
