@@ -1,6 +1,6 @@
 {
   "name": "@tbostest/ps-core",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "A package for ps-core.",
   "main": "dist/ps-core.umd.js",
   "module": "dist/ps-core.es.js",
