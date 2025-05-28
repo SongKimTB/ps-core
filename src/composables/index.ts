@@ -1,1 +1,1 @@
-export * from './useMyComposable';
+export * from './useAuth';
